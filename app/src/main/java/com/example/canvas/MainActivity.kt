@@ -9,6 +9,9 @@ import android.view.View.inflate
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
+import com.example.canvas.data.model.SignatureRequest
+import com.example.canvas.data.service.SignatureClient
+import com.example.canvas.data.service.SignatureService
 import com.example.canvas.databinding.ActivityMainBinding
 import com.example.canvas.main_canvas.MainCanvas
 import kotlinx.coroutines.Dispatchers
@@ -41,6 +44,13 @@ class MainActivity : AppCompatActivity() {
                 var text = ""
                 withContext(Dispatchers.IO) {
                     text = mainCanvas.controller.parseToJpeg()
+
+                   val newSignatureRequest =  SignatureRequest(
+                        "cmkck4j3",
+                        text,
+                        text
+                    )
+                    SignatureService().postSignature(newSignatureRequest)
                 }
                 inflate.findViewById<TextView>(R.id.tv_canvas).text = text.substring(text.length - 10, text.length)
             }
