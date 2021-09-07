@@ -19,7 +19,7 @@ class MainCanvasController(val ctx: MainCanvas) {
     fun parseToJpeg(): String {
 
         val outputStream = ByteArrayOutputStream()
-        ctx.extraBitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream)
+        ctx.extraBitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream)
         val byteArray: ByteArray = outputStream.toByteArray()
         return Base64.encodeToString(byteArray, Base64.DEFAULT)
     }

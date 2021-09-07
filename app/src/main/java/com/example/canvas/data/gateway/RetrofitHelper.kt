@@ -6,7 +6,7 @@ package com.example.canvas.data.gateway
     object RetrofitHelper {
         fun getRetrofit(): Retrofit {
             return Retrofit.Builder()
-                .baseUrl("http://localhost:3024")
+                .baseUrl("http://192.168.1.140:3024")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
         }

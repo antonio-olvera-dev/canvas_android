@@ -12,7 +12,7 @@ import retrofit2.http.Multipart
 
 
 interface SignatureClient {
-    @Multipart
+   
     @POST("api/v3/upload/signature")
     fun uploadSignature(@Body request:SignatureRequest): Call<List<SignatureRequest>>
 
